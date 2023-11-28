@@ -1,0 +1,117 @@
+@import url('https://fonts.cdnfonts.com/css/oxanium');
+#overlay
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.326);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+#formulaire
+{
+    font-family: 'Oxanium', sans-serif;
+    width: 600px;
+    height: 725px;
+    outline: 3px solid black;
+    background: rgb(12, 109, 162);
+    border-radius: 40px;
+    color: white;
+}
+
+#formulaire > div
+{
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form_element
+{
+    display: flex;
+    flex-direction: column;
+}
+
+label, legend
+{
+    font-size: 25px;
+    font-weight: 600;
+}
+
+label[class="light"]
+{
+    font-weight: 100;
+    font-size: 20px;
+}
+
+input
+{
+    border-radius: .5rem;
+    border: none;
+    font-size: 15px;
+    padding: 5px;
+}
+
+input[type="text"]
+{
+    padding: 5px;
+    width: 200px;
+}
+
+input[type="number"]
+{
+    width: 200px;
+}
+
+.optional
+{
+    font-weight: 100;
+    font-size: 20px;
+}
+
+#presentation
+{
+    font-size: 18px;
+    padding: 10px;
+}
+
+#sexe_box
+{
+    font-size: 20px;
+}
+
+#enregistrer_annulation_box
+{
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+}
+
+#enregistrer_annulation_box .form_button
+{
+    border-radius: .5rem;
+    border: none;
+    width: 40%;
+    height: 30px;
+    font-size: 17px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .5s;
+}
+
+#enregistrer_annulation_box .form_button:hover
+{
+    cursor: pointer;
+    transform: scale(1.03);
+}
+
+/* Supression des style pré-définie */
+fieldset{
+    border: none;
+}

@@ -1,0 +1,97 @@
+@media (max-width: 750px){
+    .profil-container, .nav--title, .nav--logo{
+        font-size: 25px;
+    }
+
+    #formulaire{
+        width: 25rem;
+        height: fit-content;
+    }
+}
+
+@media(max-width: 425px){
+    header{
+        height: fit-content;
+    }
+    nav{
+        flex-direction: column-reverse;
+        padding: 0;
+    }
+    .nav--logo, .nav--title, .profil-container{
+        height: 50px;
+    }
+    #champ_de_recherche{
+        width: 15rem;
+    }
+    .profil_design{
+        width: 12rem;
+        min-height: 15rem;
+    }
+
+    #formulaire{
+        width: 80%;
+        height: fit-content;
+    }
+
+    #formulaire > div{
+        padding: 15px;
+        gap: 10px;
+    }
+    
+    #formulaire label, #formulaire > div legend{
+        font-size: 15px;
+    }
+
+    #formulaire > div input{
+        height: 8px;
+        width: 100px;
+        font-size: 15px;
+    }
+
+    #formulaire > div input[type="number"]{
+        width: 100px;
+    }
+
+    #formulaire > div input[type="file"]{
+        height: 25px;
+        width: fit-content;
+        padding: 0;
+        font-size: 12px;
+    }
+
+    #formulaire > div input[type="radio"]{
+        width: 10px;
+        height: 10px;
+    }
+
+    .optional{
+        font-size: 12px;
+    }
+
+    #sexe_box > div{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        width: fit-content;
+        gap: 10px;
+    }
+
+    #sexe_box > div > input{
+        width: fit-content;
+    }
+
+    #presentation{
+        width: 90%;
+        height: 40px;
+        max-height: 40px;
+        max-width: 90%;
+        min-width: 90%;
+        min-height: 40px;
+        font-size: 13px;
+    }
+
+    .form_element{
+        display: flex;
+        flex-wrap: wrap;
+    }
+}

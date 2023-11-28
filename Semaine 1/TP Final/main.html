@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Akram Chami">
+    <meta name="author" content="Anthony Boschat">
+    <meta name="description" content="Une page pour accéder à différents profils d'utilisateurs et en créer soi-même.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <link rel="stylesheet" href="./style/main.css">
+    <link rel="stylesheet" href="./style/formulaire.css">
+    <link rel="stylesheet" href="./style/Navbar.css">
+    <link rel="stylesheet" href="./style/media.css">
+    <title>Plateforme de Profils : Consultez et Créez</title>
+</head>
+<body>
+
+    <!-- Bar de navigation  -->
+    <header>
+        <nav aria-label="Barre de Navigation">
+            <div class="nav--profils" onmouseover="showDropdown()" onmouseout="hideDropdown()">
+                <label for="profil_box" class="masquage_accessible">Afficher la liste des profils</label>
+                <button class="profil-container" id="profil_box">Profils</button>
+                <div class="dropdown-content" id="myDropdown"></div>
+            </div>
+            <div class="nav--title"><a href="main.html" title="Retour à la page principal" id="title">Mettez vous en avant</a></div>
+            <div class="nav--logo"><i class="fa-solid fa-user"></i></div>
+        </nav>    
+    </header>
+
+
+    <!-- Main de la page avec la bare de recherche, le bouton d'Ajouter les profils  -->
+    <main>
+        <div>
+            <label for="champ_de_recherche" class="masquage_accessible">Recherche par prénom</label>
+            <input type="search" id="champ_de_recherche" placeholder="Recherche par Prénom...">
+        </div>
+        <div id="profils_box">
+            <label for="new_profil" class="masquage_accessible">Créé un nouveau profil</label>
+            <button class="profil_design" id="new_profil" title="Ajouter Un projet"><i aria-hidden="true" class="fa-solid fa-plus"></i></button>
+        </div>
+    </main>
+
+
+    <!-- Le formulaire  -->
+    <div id="overlay">
+        <form action="" id="formulaire">
+            <div>
+                <div class="form_element">
+                    <label for="nom">Nom</label>
+                    <input type="text" placeholder="Votre Nom" id="nom" required>
+                </div>
+                <div class="form_element">
+                    <label for="prenom">Prenom</label>
+                    <input type="text" placeholder="Votre Prénom" id="prenom" required>
+                </div>
+                <div class="form_element">
+                    <label for="age">Âge</label>
+                    <input type="number" placeholder="Votre Age" id="age" required>
+                </div>
+
+                <fieldset class="form_element">
+                    <legend>Sexe <span class="optional">(facultatif)</span></legend>
+                    <div id="sexe_box">
+                        <div>
+                            <input type="radio" id="homme" name="sexe" value="Homme">
+                            <label for="homme" class="light">Homme</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="femme" name="sexe" value="Femme">
+                            <label for="femme" class="light">Femme</label>
+                        </div>
+                        <div>
+                            <input type="radio" id="non-défini" name="sexe" value="Non Défini">
+                            <label for="non-défini" class="light">Non définie</label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="form_element">
+                    <label for="presentation">Présentation</label>
+                    <textarea name="presentation" id="presentation" cols="30" rows="5" placeholder="Présentez-vous"></textarea>
+                </div>
+                <div class="form_element">
+                    <label for="image">Image</label>
+                    <input type="file" id="image">
+                </div>
+                <div class="form_element">
+                    <div id="enregistrer_annulation_box">
+                        <input type="submit" value="Enregistrer" class="form_button">
+                        <button value="Annuler" class="form_button">Annuler</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    
+    <!-- Les scritps injectés  -->
+    <script src="./scripts/search.js"></script>
+    <script src="./scripts/add_profil_name_in_nav.js"></script>
+    <script src="./scripts/button_new_profil.js"></script>
+    <script src="./scripts/Navbar.js"></script>
+</body>
+</html>

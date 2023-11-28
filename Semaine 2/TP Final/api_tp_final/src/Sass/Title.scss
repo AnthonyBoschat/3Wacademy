@@ -1,0 +1,44 @@
+#title_box{
+    height: 15vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+    gap: 1em;//
+}
+
+#title_box > h1{
+    font-size: 3em;
+}
+
+@media(max-width: 600px){
+    #title_box{
+        height: 10vh;
+        justify-content: center;
+    }
+}
+
+@media(max-width: 500px){
+    #title_box > h1{
+        font-size: 1.8em;
+    }
+
+    #title_box > h2{
+        font-size: 1.3em;
+    }
+}
+
+@media(max-width: 300px){
+    #title_box{
+        height: 10vh;
+        justify-content: flex-start;
+    }
+
+    #title_box > h1{
+        font-size: 1.2em;
+    }
+
+    #title_box > h2{
+        font-size: 0.8em;
+    }
+}
