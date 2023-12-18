@@ -2,17 +2,6 @@ import React from "react";
 
 function BottomButtons(){
 
-    /////// STATE /////////
-
-
-
-    /////// METHODE /////////
-
-
-    /////// REF /////////
-
-    /////// RENDER /////////
-
     return(
         <div id="bottom-wizard">
             <button type="button" name="backward" className="backward">

@@ -2,17 +2,6 @@ import React from "react";
 
 function Summary({data}){
 
-    /////// STATE /////////
-
-
-
-    /////// METHODE /////////
-
-
-    /////// REF /////////
-
-    /////// RENDER /////////
-
     return(
         <div className="submit step">
           <h3 className="main_question">

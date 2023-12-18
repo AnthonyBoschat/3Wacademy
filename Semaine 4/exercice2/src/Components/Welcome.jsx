@@ -2,17 +2,6 @@ import React from "react";
 
 function Welcome(){
 
-    /////// STATE /////////
-
-
-
-    /////// METHODE /////////
-
-
-    /////// REF /////////
-
-    /////// RENDER /////////
-
     return(
         <div className="col-lg-6 content-left">
             <div className="content-left-wrapper">

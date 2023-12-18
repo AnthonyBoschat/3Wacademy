@@ -2,17 +2,6 @@ import React from "react";
 
 function Details({data, dispatchData, DATA_ACTIONS}){
 
-    /////// STATE /////////
-    console.log(data)
-
-
-    /////// METHODE /////////
-
-
-    /////// REF /////////
-
-    /////// RENDER /////////
-
     return(
         <div className="step">
           <h3 className="main_question">

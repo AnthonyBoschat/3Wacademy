@@ -15,7 +15,8 @@ import UseData from "./CustomHook/UseData.jsx"
 export const App: FC<{ name: string }> = ({ name }) => {
 
   const {data, DATA_ACTIONS, dispatchData} = UseData()
-
+  console.log(data)
+  
   return (
     <>
       <Loader />

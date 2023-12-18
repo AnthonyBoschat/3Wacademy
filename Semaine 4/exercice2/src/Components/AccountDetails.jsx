@@ -2,17 +2,6 @@ import React from "react";
 
 function AccountDetails({data, dispatchData, DATA_ACTIONS}){
 
-    /////// STATE /////////
-
-
-
-    /////// METHODE /////////
-
-
-    /////// REF /////////
-
-    /////// RENDER /////////
-
     return(
         <div className="step">
           <h3 className="main_question">
