@@ -26,8 +26,8 @@ function App() {
   return (
     <main>
       <BaseNumberInput
-        onChangeBase={handleChangeDecToBin}
         number={number}
+        onChangeBase={handleChangeDecToBin}
       />
       <BaseNumberInput
         number={number.toString(2)}
