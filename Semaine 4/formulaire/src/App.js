@@ -6,7 +6,7 @@ function App() {
 
   const [number, setNumber] = useState("")
 
-  const handleChange = (value) => {
+  const handleChangeDecToBin = (value) => {
     if(isNaN(parseInt(value))){
       setNumber("")
     }else{
@@ -14,14 +14,24 @@ function App() {
     }
   }
 
+  const handleChangeBinToDec = (value) => {
+    const binaryRegex = /^[01]+$/
+    if(binaryRegex.test(parseInt(value))){
+      setNumber(parseInt(value, 2))
+    }else{
+      setNumber("")
+    }
+  }
+
   return (
     <main>
       <BaseNumberInput
-        onChangeBase={handleChange}
+        onChangeBase={handleChangeDecToBin}
         number={number}
       />
       <BaseNumberInput
         number={number.toString(2)}
+        onChangeBase={handleChangeBinToDec}
       />
     </main>
   );
