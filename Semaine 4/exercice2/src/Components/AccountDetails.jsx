@@ -9,6 +9,7 @@ function AccountDetails({data, dispatchData, DATA_ACTIONS}){
           </h3>
           <div className="form-group">
             <input
+              required
               value={data.userName}
               type="text"
               name="user_name"
@@ -19,6 +20,7 @@ function AccountDetails({data, dispatchData, DATA_ACTIONS}){
           </div>
           <div className="form-group">
             <input
+              required
               value={data.password1}
               className="form-control"
               type="password"
@@ -30,6 +32,8 @@ function AccountDetails({data, dispatchData, DATA_ACTIONS}){
           </div>
           <div className="form-group">
             <input
+              pattern={`^${data.password1}`}
+              required
               value={data.password2}
               className="form-control"
               type="password"

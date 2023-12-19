@@ -18,6 +18,7 @@ function Details({data, dispatchData, DATA_ACTIONS}){
           </h3>
           <div className="form-group">
             <input
+              required
               value={data.firstName}
               type="text"
               name="first_name"
@@ -28,7 +29,8 @@ function Details({data, dispatchData, DATA_ACTIONS}){
           </div>
           <div className="form-group">
             <input
-            value={data.lastName}
+              required
+              value={data.lastName}
               type="text"
               name="last_name"
               className="form-control required"
@@ -38,6 +40,7 @@ function Details({data, dispatchData, DATA_ACTIONS}){
           </div>
           <div className="form-group">
             <input
+              required
               value={data.email}
               type="email"
               name="email"
@@ -50,6 +53,7 @@ function Details({data, dispatchData, DATA_ACTIONS}){
 
           <div className="form-group">
             <select
+              required
               className="wide required form-control"
               name="country"
               onChange={async (e) => {
@@ -76,6 +80,7 @@ function Details({data, dispatchData, DATA_ACTIONS}){
           {pays && (
             <div className="form-group">
             <select
+              required
               className="wide required form-control"
               name="pays"
               onChange={(e) => dispatchData({type:DATA_ACTIONS.UPDATE_PAYS, payload:(e.target.value)})}
@@ -97,6 +102,7 @@ function Details({data, dispatchData, DATA_ACTIONS}){
                 Terms and conditions
               </a>
               <input
+                required
                 type="checkbox"
                 name="terms"
                 value="Yes"

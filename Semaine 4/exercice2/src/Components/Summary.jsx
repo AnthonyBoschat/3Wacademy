@@ -25,13 +25,10 @@ function Summary({data}){
                     <label>Email</label>: <span id="email">{data.email}</span>
                   </li>
                   <li>
-                    <label>Country</label>: <span id="country">{data.adress.country.name}</span>
+                    <label>Country</label>: <span id="country">{data.adress.country}</span>
                   </li>
                   <li>
-                    <label>State</label>: <span id="state"></span>
-                  </li>
-                  <li>
-                    <label>City</label>: <span id="city"></span>
+                    <label>State</label>: <span id="state">{data.adress.pays}</span>
                   </li>
                 </ul>
               </li>
@@ -41,11 +38,12 @@ function Summary({data}){
                 <ul>
                   <li>
                     <label>User Name</label>:{' '}
-                    <span id="user_name"></span>
+                    <span id="user_name">{data.account.userName}</span>
                   </li>
                   <li>
                     <label>Password</label>:{' '}
-                    <span id="password"></span>
+                    {console.log("console",data)}
+                    <span id="password">{data.account.password}</span>
                   </li>
                 </ul>
               </li>

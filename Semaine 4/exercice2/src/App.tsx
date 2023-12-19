@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useRef, useState } from 'react';
 
 import './style.css';
 import './menu.css';
@@ -15,7 +15,44 @@ import UseData from "./CustomHook/UseData.jsx"
 export const App: FC<{ name: string }> = ({ name }) => {
 
   const {data, DATA_ACTIONS, dispatchData} = UseData()
-  console.log(data)
+  const [step, setStep] = useState(0)
+  const formRef = useRef()
+  const [BouttonDisabled, setBouttonDisabled] = useState(false)
+
+
+  const handleChangeStep = () => {
+    const formReference = formRef.current as HTMLFormElement
+    if(formReference){
+      if(formReference.reportValidity()){
+
+        if(step != 1){
+          setStep((current) => (++current))
+          setBouttonDisabled(false)
+        }
+
+        else{
+          if(data.password1 === data.password2){
+            dispatchData({type:DATA_ACTIONS.SAVEINFO, payload:{userName:data.userName, password:data.password1}})
+            setStep((current) => (++current))
+            setBouttonDisabled(true)
+          }
+        }  
+      }
+    }
+  }
+
+  const handlePreviousStep = () => {
+    if(step != 0){
+      setStep((current) => (current - 1))
+      setBouttonDisabled(false)
+    }
+  }
+  
+
+  const handleSubmit = () => {
+    console.log(data)
+    window.alert("Vous venez d'envoyer votre formulaire")
+  }
   
   return (
     <>
@@ -28,14 +65,14 @@ export const App: FC<{ name: string }> = ({ name }) => {
               <div id="top-wizard">
                 <div id="progressbar"></div>
               </div>
-              <form id="wrapped">
+              <form onSubmit={handleSubmit} ref={formRef} id="wrapped">
                 <input id="website" name="website" type="text" />
                 <div id="middle-wizard">
-                  <Details data={data} dispatchData={dispatchData} DATA_ACTIONS={DATA_ACTIONS} />
-                  <AccountDetails data={data} dispatchData={dispatchData} DATA_ACTIONS={DATA_ACTIONS} />
-                  <Summary data={data} />
+                  {step === 0 && (<Details data={data} dispatchData={dispatchData} DATA_ACTIONS={DATA_ACTIONS} />)}
+                  {step === 1 && (<AccountDetails data={data} dispatchData={dispatchData} DATA_ACTIONS={DATA_ACTIONS} />)}
+                  {step === 2 && (<Summary data={data} />)}
                 </div>
-                <BottomButtons />
+                <BottomButtons BouttonDisabled={BouttonDisabled} handlePreviousStep={handlePreviousStep} handleChangeStep={handleChangeStep} />
               </form>
             </div>
           </div>

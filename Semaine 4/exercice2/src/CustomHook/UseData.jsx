@@ -13,6 +13,7 @@ const UseData = () => {
         UPDATE_USERNAME:"UPDATE_USERNAME",
         UPDATE_PASSWORD1:"UPDATE_PASSWORD1",
         UPDATE_PASSWORD2:"UPDATE_PASSWORD2",
+        SAVEINFO:"SAVEINFO",
     }
 
     // Le state initial
@@ -55,6 +56,8 @@ const UseData = () => {
                 return {...state, password1:action.payload}
             case DATA_ACTIONS.UPDATE_PASSWORD2:
                 return {...state, password2:action.payload}
+            case DATA_ACTIONS.SAVEINFO:
+                return {...state, account:{...state.account, userName:action.payload.userName, password:action.payload.password}}
         }
     }
 
