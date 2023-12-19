@@ -1,6 +1,15 @@
-import React from "react";
+import React, {useState} from "react";
 
 function Details({data, dispatchData, DATA_ACTIONS}){
+  
+    const [pays, setPays] = useState(false)
+
+    const generatePaysForm = (pays) => {
+      return(
+        <option key={pays.population} value={pays.name.common}>{pays.name.common}</option>
+      )
+    }
+
 
     return(
         <div className="step">
@@ -37,13 +46,26 @@ function Details({data, dispatchData, DATA_ACTIONS}){
               onChange={(e) => dispatchData({type:DATA_ACTIONS.UPDATE_EMAIL, payload:(e.target.value)})}
             />
           </div>
+
+
           <div className="form-group">
             <select
               className="wide required form-control"
               name="country"
-              onChange={(e) => dispatchData({type:DATA_ACTIONS.UPDATE_COUNTRY, payload:(e.target.value)})}
-            >
-              <option value="">Your Country</option>
+              onChange={async (e) => {
+                dispatchData({type:DATA_ACTIONS.UPDATE_COUNTRY, payload:(e.target.value)})
+                if(e.target.value != ""){
+                  const response = await fetch(`https://restcountries.com/v3.1/region/${e.target.value}`, {
+                  method: 'GET',
+                  });
+                  const countryData = await response.json()
+                  setPays(countryData)
+                }else{
+                  setPays(false)
+                }
+              }
+              }>
+              <option value="">-- Régions --</option>
               <option value="Europe">Europe</option>
               <option value="Asia">Asia</option>
               <option value="North America">North America</option>
@@ -51,6 +73,19 @@ function Details({data, dispatchData, DATA_ACTIONS}){
               <option value="Oceania">Oceania</option>
             </select>
           </div>
+          {pays && (
+            <div className="form-group">
+            <select
+              className="wide required form-control"
+              name="pays"
+              onChange={(e) => dispatchData({type:DATA_ACTIONS.UPDATE_PAYS, payload:(e.target.value)})}
+            >
+              <option value="">-- Pays --</option>
+              {pays.map(pays => generatePaysForm(pays))}
+            </select>
+          </div>
+          )}
+          
           <div className="form-group terms">
             <label className="container_check">
               Please accept our{' '}

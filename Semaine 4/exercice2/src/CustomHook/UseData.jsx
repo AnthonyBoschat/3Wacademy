@@ -8,6 +8,7 @@ const UseData = () => {
         UPDATE_LASTNAME:"UPDATE_LASTNAME",
         UPDATE_EMAIL:"UPDATE_EMAIL",
         UPDATE_COUNTRY:"UPDATE_COUNTRY",
+        UPDATE_PAYS:"UPDATE_PAYS",
         UPDATE_POLITICS:"UPDATE_POLITICS",
         UPDATE_USERNAME:"UPDATE_USERNAME",
         UPDATE_PASSWORD1:"UPDATE_PASSWORD1",
@@ -24,12 +25,8 @@ const UseData = () => {
         password2 : "",
         accept: false,
         adress : {
-            country : {
-                name : "",
-                code: ""
-            },
-            state: "",
-            city: ""
+            country : "",
+            pays: "",
         },
         account: {
             userName: "",
@@ -47,7 +44,9 @@ const UseData = () => {
             case DATA_ACTIONS.UPDATE_EMAIL:
                 return {...state, email:action.payload}
             case DATA_ACTIONS.UPDATE_COUNTRY:
-                return {...state, adress: {...state.adress, country: {...state.adress.country,name: action.payload}}}
+                return {...state, adress: {...state.adress, country: action.payload}}
+            case DATA_ACTIONS.UPDATE_PAYS:
+                return {...state, adress: {...state.adress, pays: action.payload}}
             case DATA_ACTIONS.UPDATE_POLITICS:
                 return {...state, accept:!state.accept}
             case DATA_ACTIONS.UPDATE_USERNAME:
