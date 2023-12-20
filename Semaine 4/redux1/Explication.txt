@@ -1,0 +1,11 @@
+-> On créé un dossier dans src -> Store
+-> Dans ce fichier, un va créé :
+• un fichier Reducer classique
+• un fichier index.jsx qui va servir à la création de notre Store
+
+-> Dans le fichier index.jsx, ne pas oublier d'importer le reducer pour l'utiliser, et ensuite d'exporter notre store.
+
+-> A la racine du projet, dans App :
+• importer Provider depuis react-redux
+• importer notre store
+• Englober nos composant de ce provider, avec comme props le store={store}
