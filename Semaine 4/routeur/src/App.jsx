@@ -1,12 +1,15 @@
 import {Link, Route, Routes, BrowserRouter as Routeur} from "react-router-dom"
 import Details from "./Components/Details";
+import Test from "./Components/Test";
 
 function App() {
 
   const roots = () => (
     <Routes>
       <Route path="/" element={null}/>
-      <Route path="Details/:postID" element={<Details posts = {posts}/>}/>
+      <Route path="Details/:postID" element={<Details posts = {posts}/>}>
+        <Route path="test" element={<Test/>}/>
+      </Route>
     </Routes>
   )
   
