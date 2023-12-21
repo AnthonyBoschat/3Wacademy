@@ -1,7 +1,12 @@
-import { createStore } from "redux";
-import { counterReducer } from "../Reducers/CounterReducer"; // Importez votre reducer
+import {combineReducers, createStore} from "redux"
+import { counterReducer } from "../Reducers/CounterReducer"
+import { nameReducer } from "../Reducers/NameReducer"
 
-// Créez le store en utilisant votre reducer
-const store = createStore(counterReducer);
+const rootReducer = combineReducers({
+    counterStore:counterReducer,
+    nameReducer:nameReducer,
+})
 
-export default store;
+const counterStore = createStore(rootReducer)
+
+export default counterStore

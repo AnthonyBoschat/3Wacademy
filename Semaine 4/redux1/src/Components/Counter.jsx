@@ -1,28 +1,17 @@
-import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { COUNTER_ACTION } from "../Reducers/CounterReducer"; // Assurez-vous d'importer correctement votre action
+import { COUNTER_ACTIONS } from "../Reducers/CounterReducer";
 
-function Counter() {
-  const counterState = useSelector((state) => state.value); // Accédez à l'état du compteur
-  const dispatch = useDispatch(); // Obtenez la fonction de dispatch
+function Counter(){
+    const counterValue = useSelector(state => state.counterStore.value)
+    const dispatch = useDispatch()
 
-  const increment = () => {
-    // Dispatchez l'action d'incrémentation
-    dispatch({ type: COUNTER_ACTION.INCREMENT });
-  };
-
-  const decrement = () => {
-    // Dispatchez l'action de décrémentation
-    dispatch({ type: COUNTER_ACTION.DECREMENT });
-  };
-
-  return (
-    <div>
-      <h2>Counter Value: {counterState}</h2>
-      <button onClick={increment}>Increment</button>
-      <button onClick={decrement}>Decrement</button>
-    </div>
-  );
+    return(
+        <main>
+            <div>Valeur : {counterValue}</div>
+            <button onClick={() => dispatch({type:COUNTER_ACTIONS.INCREMENT})}> Augmenter</button>
+            <button onClick={() => dispatch({type:COUNTER_ACTIONS.DECREMENT})}>Diminuer</button>
+        </main>
+    )
 }
 
 export default Counter;
