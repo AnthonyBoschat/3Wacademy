@@ -1,10 +1,17 @@
-
+import Form from "./Components/Form";
+import Result from "./Components/Result";
+import {Provider} from "react-redux"
+import { denominationStore } from "./Store";
 
 function App() {
   return (
-    <main>
-      
-    </main>
+    <Provider store={denominationStore}>
+      <main>
+        <Form/>
+        <Result/>
+      </main>
+    </Provider>
+    
   );
 }
 
