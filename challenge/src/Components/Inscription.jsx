@@ -8,21 +8,21 @@ function Inscription(){
     const inputUserName = useRef()
     const users = useSelector(state => state.users)
     const dispatch = useDispatch()
-    
-    const verificationUsersExist = (userName) => {
-        const result = users.find(user => user === userName)
-        if(result){return false}
-        else{return true}
-    }
+
+
 
     const handleSubmit = (e) => {
         e.preventDefault()
         const userName = inputUserName.current.value
-        const notExist = verificationUsersExist(userName)
-        if(!notExist){ // Si l'utilisateur existe déjà
-            window.alert("Nom d'utilisateur déjà enregistrer, merci d'en choisir un nouveau")
-        }else if(userName === ""){ // S'il n'y a pas de nom de renseigner
+        const userExist = users.find(user => user === userName)
+
+        if(userName === ""){ // S'il n'y a pas de nom de renseigner
             window.alert("Merci de renseigner un nom d'utilisateur")
+            return
+        }
+        
+        if(userExist){ // Si l'utilisateur existe déjà
+            window.alert("Nom d'utilisateur déjà enregistrer, merci d'en choisir un nouveau")
         }
         else{ // Sinon
             dispatch(addUser(userName)) // On met à jour notre state Users

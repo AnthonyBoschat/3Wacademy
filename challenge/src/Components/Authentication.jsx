@@ -5,15 +5,6 @@ import { addUser, saveUsers } from "../Redux/Slices/UsersSlices";
 
 function Authentication() {
 
-    const dispatch = useDispatch()
-
-    useEffect(() => {
-        const localStorageData = JSON.parse(localStorage.getItem("users")) // On récupère le localStorage
-        if (localStorageData) { // S'il existe un localStorage
-            dispatch(saveUsers(localStorageData)) // On modifier notre state Users
-        }
-    }, []) // Se a chaque montage du composant
-
 
     return (
         <div className="authenticationOverlay">

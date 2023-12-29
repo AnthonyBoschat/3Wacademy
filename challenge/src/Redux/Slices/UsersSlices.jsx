@@ -1,12 +1,16 @@
 import {createSlice} from "@reduxjs/toolkit"
 
+const localStorageData = JSON.parse(localStorage.getItem("users"))
+
 const UsersSlice = createSlice({
     name:"users",
-    initialState:[],
+    initialState: localStorageData ? localStorageData : [],
     reducers:{
+
         addUser:(state, action) => {
             state.push(action.payload)
         },
+        
         saveUsers:(state, action) => {
             return state = action.payload
         }
