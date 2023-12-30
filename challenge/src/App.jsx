@@ -6,6 +6,7 @@ import CodeGiver from "./Components/CodeGiver";
 import "./Css/main.css"
 import {Provider, useSelector} from "react-redux"
 import store from "./Redux/Store";
+import Accueil from "./Components/Accueil";
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
             <Route path="/" element={<Authentication />}/>
             <Route path="inscription" element={<Inscription />}/>
             <Route path="codeGiver" element={<CodeGiver />}/>
+            <Route path="accueil" element={<Accueil />}/>
           </Routes>
         </main>
       </Routeur>

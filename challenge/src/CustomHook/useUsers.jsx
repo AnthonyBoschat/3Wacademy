@@ -14,11 +14,18 @@ export default function useUsers(){
 
     const generateNewToken = () => {
         let token = ""
+        let controle = true
 
-        for(let i = 0; i < 8; i++){
-            const randomNumber = Math.floor(Math.random() * 10)
-            token += randomNumber
+        while(controle){
+            for(let i = 0; i < 8; i++){
+                const randomNumber = Math.floor(Math.random() * 10)
+                token += randomNumber
+            }
+            const resultat = users.find(user => user.token === token)
+            if(resultat){token = ""}
+            else{controle = false}
         }
+        
 
         return token
     }
@@ -64,7 +71,6 @@ export default function useUsers(){
         }else{
             return false
         }
-        
     }
 
     
