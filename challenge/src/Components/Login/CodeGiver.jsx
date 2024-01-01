@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import useUsers from "../CustomHook/useUsers";
+import useUsers from "../../CustomHook/useUsers";
 import { useDispatch, useSelector } from "react-redux";
-import { changeSecure } from "../Redux/Slices/SecureSlices";
+import { changeSecure } from "../../Redux/Slices/SecureSlices";
 
 function CodeGiver(){
 

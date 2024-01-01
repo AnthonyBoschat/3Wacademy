@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
 import {BrowserRouter as Routeur, Route, Link, Routes} from "react-router-dom"
-import Authentication from "./Components/Authentication";
-import Inscription from "./Components/Inscription";
-import CodeGiver from "./Components/CodeGiver";
+import Authentication from "./Components/Login/Authentication";
+import Inscription from "./Components/Login/Inscription";
+import CodeGiver from "./Components/Login/CodeGiver";
 import "./Css/main.css"
 import {Provider, useSelector} from "react-redux"
 import store from "./Redux/Store";
-import Accueil from "./Components/Accueil";
+import Application from "./Components/Application/Application";
+import Quizz from "./Components/Quizz/Quizz";
+import Statistique from "./Components/Statistique/Statistique";
+import Accueil from "./Components/Accueil/Accueil";
 
 
 function App() {
@@ -20,7 +23,11 @@ function App() {
             <Route path="/" element={<Authentication />}/>
             <Route path="inscription" element={<Inscription />}/>
             <Route path="codeGiver" element={<CodeGiver />}/>
-            <Route path="accueil" element={<Accueil />}/>
+            <Route path="application/:userName/" element={<Application />}>
+              <Route index path="accueil" element={<Accueil/>}/>
+              <Route path="quizz" element={<Quizz/>}/>
+              <Route path="statistique" element={<Statistique/>}/>
+            </Route>
           </Routes>
         </main>
       </Routeur>

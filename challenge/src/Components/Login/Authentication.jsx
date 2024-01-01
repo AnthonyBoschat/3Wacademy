@@ -1,18 +1,28 @@
 import React, {useRef} from "react";
 import { BrowserRouter as Routeur, Route, Link, Routes, useNavigate } from "react-router-dom"
-import useLog from "../CustomHook/useLog";
+import useLog from "../../CustomHook/useLog";
+import { useDispatch, useSelector } from "react-redux";
+import { changeSecure } from "../../Redux/Slices/SecureSlices";
 
 function Authentication() {
+
     const navigate = useNavigate()
     const userNameRef = useRef()
     const userCodeRef = useRef()
     const {handleLogin} = useLog()
+    const dispatch = useDispatch()
+
+    
+
 
     const handleSubmit = (e) => {
         e.preventDefault()
         const payload = {userName:userNameRef.current.value, userCode:userCodeRef.current.value}
         const result = handleLogin(payload)
-        if(result){navigate(`accueil?userName=${payload.userName}`)}
+        if(result){
+            dispatch(changeSecure(true))
+            navigate(`application/${payload.userName}/accueil`)
+        }
     }
 
     return (
