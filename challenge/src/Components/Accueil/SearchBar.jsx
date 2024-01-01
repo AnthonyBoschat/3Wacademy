@@ -1,6 +1,5 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { updatePokemonsToShow } from "../../Redux/Slices/PokemonsSlices";
+import { useSelector } from "react-redux";
 import useSearchBar from "../../CustomHook/useSearchBar";
 
 function SearchBar(){

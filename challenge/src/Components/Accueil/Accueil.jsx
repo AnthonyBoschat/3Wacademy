@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import SearchBar from "./SearchBar";
 import PokemonsList from "./PokemonsList";
 import { useDispatch, useSelector } from "react-redux";

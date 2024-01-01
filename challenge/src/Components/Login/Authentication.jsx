@@ -1,7 +1,7 @@
 import React, {useRef} from "react";
-import { BrowserRouter as Routeur, Route, Link, Routes, useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import useLog from "../../CustomHook/useLog";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import { changeSecure } from "../../Redux/Slices/SecureSlices";
 
 function Authentication() {

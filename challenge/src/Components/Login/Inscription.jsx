@@ -1,5 +1,5 @@
 import React, {} from "react";
-import {BrowserRouter as Routeur, Route, Link, Routes, Navigate, useNavigate} from "react-router-dom"
+import {Link} from "react-router-dom"
 import useUsers from "../../CustomHook/useUsers";
 
 function Inscription(){

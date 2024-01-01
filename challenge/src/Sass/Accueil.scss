@@ -3,10 +3,10 @@
     height: 90vh;
 
     .searchBarBox{
-        outline: 1px solid black; //
+        // outline: 1px solid black; //
         width: 100%;
         height: 20%;
-        background-color: rgba(255, 0, 0, 0.493); //
+        // background-color: rgba(255, 0, 0, 0.493); //
         display: flex;
         justify-content: center;
         align-items: flex-end;
@@ -24,7 +24,7 @@
     }
     
     .pokemonsListDisplay{
-        background-color: rgba(0, 255, 255, 0.585); //
+        // background-color: rgba(0, 255, 255, 0.585); //
         width: 100%;
         height: 80%;
         display: flex;
@@ -35,7 +35,7 @@
             width: 95%;
             max-width: 95%;
             height: 90%;
-            outline: 1px solid black;
+            // outline: 1px solid black;
             display: flex;
             flex-wrap: wrap;
             overflow-y: auto;

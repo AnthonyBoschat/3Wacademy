@@ -1,4 +1,3 @@
-import React, {} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updatePokemonsToShow } from "../Redux/Slices/PokemonsSlices";
 
@@ -9,13 +8,14 @@ export default function useSearchBar(){
     const filterPokemonsToShow = (e) => {
         let newArray
 
-        if(e.target.value == ""){
+        if(e.target.value === ""){
             newArray = []
         }
         else{
             newArray = pokemonsList.filter(pokemon => {
                 const pokemonName = pokemon.name.toLowerCase()
                 if(pokemonName.startsWith(e.target.value.toLowerCase())){return true}
+                return false // hum
             })
         }
         
