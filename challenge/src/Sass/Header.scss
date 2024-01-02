@@ -11,6 +11,13 @@ header{
     justify-content: center;
     align-items: center;
 
+    select{
+        position: absolute;
+        z-index: 1001;
+        left: 0;
+        top: 0;
+    }
+
     .headerButtonBox{
         padding: 1em;
         display: flex;

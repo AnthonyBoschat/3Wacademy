@@ -4,11 +4,11 @@ import useQuizz from "../../CustomHook/useQuizz";
 
 function QuizzQuestions(){
 
-    const pokemonsOfQuizz = useSelector(store => store.pokemons.pokemonsOfQuizz)
-    const indexOfQuizz = useSelector(store => store.pokemons.indexOfQuizz)
-    const {changeIndex} = useQuizz()
-
+    const pokemonsOfQuizz = useSelector(store => store.quizz.pokemonsOfQuizz)
+    const indexOfQuizz = useSelector(store => store.quizz.indexOfQuizz)
     console.log(pokemonsOfQuizz)
+    
+    const {changeIndex} = useQuizz()
 
     return(
         <div className="quizzQuestionsBox">

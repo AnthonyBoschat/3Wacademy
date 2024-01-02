@@ -1,19 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import QuizzQuestions from "./QuizzQuestions";
 import QuizzResponses from "./QuizzResponses";
 import useQuizz from "../../CustomHook/useQuizz";
+import QuizzScore from "./QuizzScore";
 
 function Quizz(){
 
-    const [quizzStart, setQuizzStart] = useState(false)
-    const {getRandomPokemons} = useQuizz()
+    const {quizzStart, quizzEnd, startQuizz, resetQuizzFull} = useQuizz()
 
-    const handleClick = () => {
-        setQuizzStart(true)
-    }
+    
 
     useEffect(() => {
-        getRandomPokemons()
+        resetQuizzFull()
     }, [])
 
     return(
@@ -21,13 +19,18 @@ function Quizz(){
             <div className="quizzDisplay">
                 {!quizzStart && (
                     <div className="quizzOff">
-                        <span onClick={handleClick} className="startButton">Commencer le quizz</span>
+                        <span onClick={startQuizz} className="startButton">Commencer le quizz</span>
                     </div>
                 )}
-                {quizzStart && (
+                {(quizzStart && !quizzEnd) && (
                     <div className="quizzOn">
                         <QuizzQuestions/>
                         <QuizzResponses/>
+                    </div>
+                )}
+                {(quizzStart && quizzEnd) && (
+                    <div className="quizzOn">
+                        <QuizzScore/>
                     </div>
                 )}
             </div>
