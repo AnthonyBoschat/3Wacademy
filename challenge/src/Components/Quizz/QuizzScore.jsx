@@ -7,9 +7,23 @@ function QuizzScore(){
     const numberOfQuestion = useSelector(store => store.parameters.numberOfQuestion)
 
     return(
-        <>
-            <h1>Score : {quizzScore} / {numberOfQuestion * 10}</h1>
-        </>
+        <div className="quizzScoreOverlay">
+            <div className="quizzScoreDisplay">
+                <div className="quizzScoreBox">
+                    <div className="scoreOfQuizz">
+                        Résultat : {quizzScore}
+                    </div>
+                    <div className="personalScore">
+                        Score personnel : 0 ( + {quizzScore} )
+                    </div>
+                </div>
+                <div className="quizzLogoBox">
+                    <div className="logoEnglobe">
+                        <i class="fa-solid fa-angles-up"/>
+                    </div>
+                </div>
+            </div>
+        </div>
     )
 }
 
