@@ -9,8 +9,12 @@ const UsersSlice = createSlice({
         addUsers:(state, action) => {
             state.push(action.payload)
         },
+        updateScore:(state, action) => {
+            const correctUser = state.find(user => user.name === action.payload.userName)
+            correctUser.score = action.payload.newScore
+        }
     },
 })
 
 export const UsersSliceReducer = UsersSlice.reducer
-export const {addUsers} = UsersSlice.actions
+export const {addUsers, updateScore} = UsersSlice.actions

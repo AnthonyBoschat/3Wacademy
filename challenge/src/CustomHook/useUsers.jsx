@@ -54,7 +54,8 @@ export default function useUsers(){
         else{ // Sinon
             const newObject = {
                 name:userName,
-                token:generateNewToken()
+                token:generateNewToken(),
+                score:0
             }
             dispatch(addUsers(newObject)) // On met à jour notre state Users
             dispatch(changeSecure(true))
@@ -73,13 +74,18 @@ export default function useUsers(){
         }
     }
 
+    const getScore = (userName) => {
+        const user = users.find(user => user.name === userName)
+        return user.score
+    }
+
     
 
 
-
+    // Responsable de la sauvegarde dans le localStorage à chaque modification de users
     useEffect(() => {
         localStorage.setItem("users", JSON.stringify(users))
     }, [users])
 
-    return{submitNewUsers, inputUserName, generateNewToken, findToken}
+    return{submitNewUsers, inputUserName, generateNewToken, findToken, getScore}
 }

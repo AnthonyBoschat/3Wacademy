@@ -127,7 +127,16 @@
                     }
 
                     .personalScore{
+                        display: flex;
+                        gap: 1vw;
 
+                        .oldScore{
+                            color: rgb(136, 15, 15);
+                        }
+
+                        .newScore{
+                            color: rgb(27, 111, 144);;
+                        }
                     }
                 }
 

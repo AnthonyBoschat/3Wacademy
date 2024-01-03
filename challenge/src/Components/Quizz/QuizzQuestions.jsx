@@ -6,7 +6,7 @@ function QuizzQuestions(){
 
     const pokemonsOfQuizz = useSelector(store => store.quizz.pokemonsOfQuizz)
     const indexOfQuizz = useSelector(store => store.quizz.indexOfQuizz)
-    console.log(pokemonsOfQuizz)
+    
     
     const {changeIndex} = useQuizz()
 
