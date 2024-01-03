@@ -15,14 +15,35 @@ header{
         position: absolute;
         z-index: 1001;
         left: 0;
-        top: 0;
+        bottom: 0;
     }
+
+    
 
     .headerButtonBox{
         padding: 1em;
         display: flex;
         width: 50%;
         justify-content: space-evenly;
+
+        .profilScore{
+            position: absolute;
+            left: 3vw;
+            font-size: 2vw;
+            display: flex;
+            gap: 0.2em;
+            align-items: center;
+    
+            i{
+                color: rgb(255, 255, 4);
+                text-shadow: 0px 0px 4px black;
+            }
+
+            span{
+                font-size: 1.5vw;
+            }
+            
+        }
 
         .navButton{
 

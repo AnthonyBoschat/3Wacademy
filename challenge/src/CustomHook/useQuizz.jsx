@@ -75,6 +75,15 @@ export default function useQuizz(){
         getRandomPokemons()
     }
 
+    // Permet de déterminer si on retire ou ajoute des points, false ça en perd, true ça en gagne
+    const determineWinOrLoose = (scoreQuizz) => {
+        const result = (scoreQuizz * 100) / (numberOfQuestion * 10)
+        if(result >= 50){
+            return true
+        }
+        return false
+    }
+
     return{
         changeIndex,
         getRandomPokemons,
@@ -83,6 +92,7 @@ export default function useQuizz(){
         quizzStart,
         quizzEnd,
         startQuizz,
-        resetQuizzFull
+        resetQuizzFull,
+        determineWinOrLoose
     }
 }
