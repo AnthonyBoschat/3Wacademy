@@ -40,6 +40,16 @@
     }
 }
 
+@keyframes apparitionQuizzInformation{
+    0%{
+        opacity: 0;
+        visibility: visible;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
 .quizzDisplay{
     // outline: 1px solid black;
     width: 100%;
@@ -141,23 +151,22 @@
 
                     >div{
                         font-size: 2vw;
-                    }
-
-                    .scoreOfQuizz{
-
-                    }
-
-                    .personalScore{
                         display: flex;
-                        gap: 1vw;
+                        gap: 2vw;
+                        align-items: center;
+                        opacity: 0; //
+                        transition: opacity 1s;
 
-                        .oldScore{
-                            color: rgb(136, 15, 15);
+                        i{
+                            font-size: 3vw;
+                            color: rgb(253, 191, 5);
+                            text-shadow: 0px 0px 4px black;
                         }
 
-                        .newScore{
-                            color: rgb(27, 111, 144);;
+                        >span{
+                            font-size: 3vw;
                         }
+
                     }
                 }
 
@@ -182,9 +191,6 @@
                         justify-content: center;
                         align-items: center;
                         padding: 2vw;
-
-                        box-shadow: 0px 0px 10px 10px rgb(6, 41, 65),
-                                    0px 0px 25px 5px rgb(8, 70, 114) inset;
 
                         i{
                             animation: up infinite 2s ease;
