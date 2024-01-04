@@ -18,7 +18,7 @@ function QuizzScore(){
 
     useEffect(() => {
         const userScore = getScore(params.userName) // Score de l'utilisateur actuel
-        const trueScore = quizzScore // Score Si l'utilisateur gagne ( nombre positif )
+        const trueScore = quizzScore // Score si l'utilisateur gagne ( nombre positif )
         const wrongScore = -((numberOfQuestion * 10) - quizzScore) // Score si l'utilisateur perd ( nombre négatif )
         const payloadNewScore = win ? userScore + trueScore : userScore + wrongScore  // Le nouveau score à mettre à jour dans le localStorage
         setQuizzScoreInformation({
