@@ -40,13 +40,12 @@
     }
 }
 
-@keyframes apparitionQuizzInformation{
-    0%{
-        opacity: 0;
-        visibility: visible;
+@keyframes newScoreAnimation{
+    50%{
+        transform: scale(1.3);
     }
     100%{
-        opacity: 1;
+        transform: scale(1);
     }
 }
 
@@ -213,4 +212,8 @@
         }
 
     }
+}
+
+.newScoreAnimation{
+    animation: newScoreAnimation 0.5s 1;
 }

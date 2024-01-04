@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import useQuizz from "../../CustomHook/useQuizz";
 import useAnimation from "../../CustomHook/useAnimation";
@@ -6,20 +6,30 @@ import useAnimation from "../../CustomHook/useAnimation";
 function QuizzScore(){
 
     const params = useParams()
-    const {quizzScoreInformation, calculQuizzInformations} = useQuizz()
+    const {quizzScoreInformation, calculQuizzInformations, setQuizzScoreInformation, injectIncrementScoreAnimation} = useQuizz()
     const {injectStyleForRefInTimeOut} = useAnimation()
     const pourcentCorrectAnswerRef = useRef()
     const quizzScoreRef = useRef()
     const starScoreRef = useRef()
-        
+    const scoreToIncrementRef = useRef()
+    
+
     useEffect(() => {
         calculQuizzInformations(params.userName)
+    }, [])
+
+    useEffect(() => {
         injectStyleForRefInTimeOut([
             {ref:pourcentCorrectAnswerRef.current.style, style:{opacity:"1"}, delay:500},
             {ref:quizzScoreRef.current.style, style:{opacity:"1"}, delay:1500},
             {ref:starScoreRef.current.style, style:{opacity:"1"}, delay:2500}
         ])
-    }, [])
+        const timeOutID = injectIncrementScoreAnimation(scoreToIncrementRef.current.classList)
+
+        return(() => {
+            clearTimeout(timeOutID)
+        })
+    }, [quizzScoreInformation])
     
     return(
         <div className="quizzScoreOverlay">
@@ -33,7 +43,7 @@ function QuizzScore(){
                     </div>
                     <div ref={starScoreRef} className="starScore">
                         <i className="fa-solid fa-star"></i>
-                        <span style={quizzScoreInformation?.styleColor}>{quizzScoreInformation?.newScoreToShow}</span>
+                        <span ref={scoreToIncrementRef} style={quizzScoreInformation?.styleColor}>{quizzScoreInformation?.oldScoreToShow}</span>
                     </div>
                 </div>
                 <div className="quizzLogoBox">

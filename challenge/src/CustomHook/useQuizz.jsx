@@ -3,6 +3,7 @@ import { incrementQuizzScore, resetQuizz, updateQuizzEnd, updateQuizzResponse, u
 import { useState } from "react";
 import useUsers from "./useUsers";
 import { updateScore } from "../Redux/Slices/UsersSlices";
+import useAnimation from "./useAnimation";
 
 
 
@@ -17,6 +18,7 @@ export default function useQuizz(){
     const quizzEnd = useSelector(store => store.quizz.quizzEnd)
     const quizzScore = useSelector(store => store.quizz.quizzScore) // Score effectuer pendant le quizz
     const {getScore} = useUsers()
+    const {injectClassAnimationForRefInTimeOut} = useAnimation()
     const dispatch = useDispatch()
     const [quizzScoreInformation, setQuizzScoreInformation] = useState(null)
     
@@ -118,9 +120,34 @@ export default function useQuizz(){
             differenceBetweenScore: userScore === 0 ? 0 : payloadNewScore < 0 ? -userScore : win ? trueScore : wrongScore, // Mdr le ternaire
             styleColor,
             logoToShow,
-            boxShadowStyle
+            boxShadowStyle,
+            win,
         })
         dispatch(updateScore({userName, newScore:payloadNewScore})) // La sauvegarde du nouveau score
+    }
+
+    const injectIncrementScoreAnimation = (scoreToIncrementRef) => {
+        const timeOutID = setTimeout(() => {
+
+            const frame = 50 / (Math.abs(quizzScoreInformation?.differenceBetweenScore) / 10)
+
+            const intervalID = setInterval(() => {
+                setQuizzScoreInformation(current => {
+                    if(current.oldScoreToShow === current.newScoreToShow){
+                        injectClassAnimationForRefInTimeOut([{ref:scoreToIncrementRef, class:"newScoreAnimation", delay:0}])
+                        clearInterval(intervalID)
+                        return current
+                    }
+                    if(current.win){
+                        return {...current, oldScoreToShow : current.oldScoreToShow + 1}
+                    }else{
+                        return {...current, oldScoreToShow : current.oldScoreToShow - 1}
+                    }
+                    
+                })
+            }, frame);
+        }, 3500);
+        return timeOutID
     }
 
     
@@ -137,5 +164,7 @@ export default function useQuizz(){
         determineWinOrLoose,
         quizzScoreInformation,
         calculQuizzInformations,
+        setQuizzScoreInformation,
+        injectIncrementScoreAnimation
     }
 }

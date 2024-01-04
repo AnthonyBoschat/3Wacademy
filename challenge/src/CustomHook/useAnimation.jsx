@@ -12,5 +12,14 @@ export default function useAnimation(){
         }
     }
 
-    return{injectStyleForRefInTimeOut}
+    const injectClassAnimationForRefInTimeOut = (array) => {
+        for(let i = 0; i<array.length; i++){
+            setTimeout(() => {
+                const element = array[i].ref
+                element.add(array[i].class)
+            }, array[i].delay);
+        }
+    }
+
+    return{injectStyleForRefInTimeOut, injectClassAnimationForRefInTimeOut}
 }
