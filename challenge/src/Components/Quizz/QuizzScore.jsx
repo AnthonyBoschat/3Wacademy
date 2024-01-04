@@ -54,7 +54,7 @@ function QuizzScore(){
                 </div>
                 <div className="quizzLogoBox">
                     <div className="logoEnglobe">
-                        <i className="fa-solid fa-angles-up"/>
+                        {win ? <i style={{color:"rgb(13, 75, 120)"}} className="fa-solid fa-angles-up"/> : <i style={{color:"rgb(136, 15, 15)"}} class="fa-solid fa-angles-down"></i>}
                     </div>
                 </div>
             </div>
