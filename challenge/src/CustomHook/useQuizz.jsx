@@ -123,6 +123,8 @@ export default function useQuizz(){
         dispatch(updateScore({userName, newScore:payloadNewScore})) // La sauvegarde du nouveau score
     }
 
+    
+
     return{
         changeIndex,
         getRandomPokemons,
@@ -134,6 +136,6 @@ export default function useQuizz(){
         resetQuizzFull,
         determineWinOrLoose,
         quizzScoreInformation,
-        calculQuizzInformations
+        calculQuizzInformations,
     }
 }

@@ -1,30 +1,24 @@
-import React, { useEffect, useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
-import useUsers from "../../CustomHook/useUsers";
-import { updateScore } from "../../Redux/Slices/UsersSlices";
 import useQuizz from "../../CustomHook/useQuizz";
+import useAnimation from "../../CustomHook/useAnimation";
 
 function QuizzScore(){
 
     const params = useParams()
-    const {getScore} = useUsers()
     const {quizzScoreInformation, calculQuizzInformations} = useQuizz()
+    const {injectStyleForRefInTimeOut} = useAnimation()
     const pourcentCorrectAnswerRef = useRef()
     const quizzScoreRef = useRef()
     const starScoreRef = useRef()
         
     useEffect(() => {
         calculQuizzInformations(params.userName)
-        setTimeout(() => {
-            pourcentCorrectAnswerRef.current.style.opacity = "1"
-            setTimeout(() => {
-                quizzScoreRef.current.style.opacity = "1"
-                setTimeout(() => {
-                    starScoreRef.current.style.opacity = "1"
-                }, 1000);
-            }, 1000);
-        }, 1000);
+        injectStyleForRefInTimeOut([
+            {ref:pourcentCorrectAnswerRef.current.style, style:{opacity:"1"}, delay:500},
+            {ref:quizzScoreRef.current.style, style:{opacity:"1"}, delay:1500},
+            {ref:starScoreRef.current.style, style:{opacity:"1"}, delay:2500}
+        ])
     }, [])
     
     return(
