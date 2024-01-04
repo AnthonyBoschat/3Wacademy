@@ -34,7 +34,12 @@ export default function useQuizz(){
             const newArray = []
             for(let i = 0; i < numberOfQuestion; i++){
                 const randomIndex = Math.floor(Math.random() * pokemonsList.length)
-                newArray.push(pokemonsList[randomIndex])
+                if(pokemonsList[randomIndex].image){
+                    newArray.push(pokemonsList[randomIndex])
+                }else{
+                    i--
+                }
+                
             }
             dispatch(updatePokemonsOfQuizz(newArray))
         }

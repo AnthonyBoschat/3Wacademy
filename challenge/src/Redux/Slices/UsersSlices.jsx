@@ -11,7 +11,8 @@ const UsersSlice = createSlice({
         },
         updateScore:(state, action) => {
             const correctUser = state.find(user => user.name === action.payload.userName)
-            correctUser.score = action.payload.newScore
+            const newScore = action.payload.newScore < 0 ? 0 : action.payload.newScore
+            correctUser.score = newScore
         }
     },
 })
