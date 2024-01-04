@@ -11,6 +11,7 @@ function QuizzScore(){
     const pourcentCorrectAnswerRef = useRef()
     const quizzScoreRef = useRef()
     const starScoreRef = useRef()
+    const logoScoreRef = useRef()
     const scoreToIncrementRef = useRef()
     
 
@@ -22,7 +23,8 @@ function QuizzScore(){
         injectStyleForRefInTimeOut([
             {ref:pourcentCorrectAnswerRef.current.style, style:{opacity:"1"}, delay:500},
             {ref:quizzScoreRef.current.style, style:{opacity:"1"}, delay:1500},
-            {ref:starScoreRef.current.style, style:{opacity:"1"}, delay:2500}
+            {ref:starScoreRef.current.style, style:{opacity:"1"}, delay:2500},
+            {ref:logoScoreRef.current.style, style:{opacity:"1"}, delay:3500},
         ])
         const timeOutID = injectIncrementScoreAnimation(scoreToIncrementRef.current.classList)
 
@@ -46,7 +48,7 @@ function QuizzScore(){
                         <span ref={scoreToIncrementRef} style={quizzScoreInformation?.styleColor}>{quizzScoreInformation?.oldScoreToShow}</span>
                     </div>
                 </div>
-                <div className="quizzLogoBox">
+                <div ref={logoScoreRef} className="quizzLogoBox">
                     <div style={quizzScoreInformation?.boxShadowStyle} className="logoEnglobe">
                         {quizzScoreInformation?.logoToShow}
                     </div>
