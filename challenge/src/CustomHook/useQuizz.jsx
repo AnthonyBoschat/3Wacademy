@@ -117,7 +117,7 @@ export default function useQuizz(){
             quizzScoreToShow: win ? trueScore : wrongScore,
             newScoreToShow: payloadNewScore,
             poucentOfCorrectAnswer: ((quizzScore * 100) / (numberOfQuestion * 10)).toFixed(),
-            differenceBetweenScore: userScore === 0 ? 0 : payloadNewScore < 0 ? -userScore : win ? trueScore : wrongScore, // Mdr le ternaire
+            differenceBetweenScore: payloadNewScore < 0 ? -userScore : win ? trueScore : wrongScore, // Mdr le ternaire
             styleColor,
             logoToShow,
             boxShadowStyle,
@@ -129,11 +129,15 @@ export default function useQuizz(){
     const injectIncrementScoreAnimation = (scoreToIncrementRef) => {
         const timeOutID = setTimeout(() => {
 
-            const frame = 50 / (Math.abs(quizzScoreInformation?.differenceBetweenScore) / 10)
+            let frame = 50 / (Math.abs(quizzScoreInformation?.differenceBetweenScore) / 10)
+            console.log("Frame : ", frame)
+            console.log("DifferenceBetweenScore : ", quizzScoreInformation?.differenceBetweenScore)
+            if(frame === Infinity){frame = 50}
 
             const intervalID = setInterval(() => {
                 setQuizzScoreInformation(current => {
-                    if(current.oldScoreToShow === current.newScoreToShow){
+                    const controlValue = current.newScoreToShow < 0 ? 0 : current.newScoreToShow
+                    if(current.oldScoreToShow === controlValue){
                         injectClassAnimationForRefInTimeOut([{ref:scoreToIncrementRef, class:"newScoreAnimation", delay:0}])
                         clearInterval(intervalID)
                         return current
