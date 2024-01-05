@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import useQuizz from "../../CustomHook/useQuizz";
 import useAnimation from "../../CustomHook/useAnimation";
+import happyPikachu from "../../Images/happyPikachu.gif"
 
 function QuizzScore(){
 
@@ -48,8 +49,8 @@ function QuizzScore(){
                         <span ref={scoreToIncrementRef} style={quizzScoreInformation?.styleColor}>{quizzScoreInformation?.oldScoreToShow}</span>
                     </div>
                 </div>
-                <div ref={logoScoreRef} className="quizzLogoBox">
-                    <div style={quizzScoreInformation?.boxShadowStyle} className="logoEnglobe">
+                <div className="quizzLogoBox">
+                    <div ref={logoScoreRef} className="logoEnglobe">
                         {quizzScoreInformation?.logoToShow}
                     </div>
                 </div>
