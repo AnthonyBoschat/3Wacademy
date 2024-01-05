@@ -2,12 +2,11 @@ import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import useQuizz from "../../CustomHook/useQuizz";
 import useAnimation from "../../CustomHook/useAnimation";
-import happyPikachu from "../../Images/happyPikachu.gif"
 
 function QuizzScore(){
 
     const params = useParams()
-    const {quizzScoreInformation, calculQuizzInformations, setQuizzScoreInformation, injectIncrementScoreAnimation} = useQuizz()
+    const {quizzScoreInformation, calculQuizzInformations, injectIncrementScoreAnimation} = useQuizz()
     const {injectStyleForRefInTimeOut} = useAnimation()
     const pourcentCorrectAnswerRef = useRef()
     const quizzScoreRef = useRef()
