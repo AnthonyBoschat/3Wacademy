@@ -1,65 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
+import StatLine from "./StatLine";
+import useStats from "../../CustomHook/useStats";
+import { useParams } from "react-router-dom";
+
 
 function Statistique(){
+
+    const users = useSelector(store => store.users)
+    const params = useParams()
+    const {filterUsers} = useStats()
+    const orderedUsers = filterUsers(users)
+
+    const userName = params.userName
+
 
     return(
         <div className="statsOverlay">
             <div className="statsBox">
                 <div className="playerStatsBox">
-
-                    <div className="playScore">
-                        <span className="playerScoreBox">
-                            <i className="playerScoreHearthIcon fa-solid fa-star"></i>
-                            <span className="playerScoreValue">480</span>
-                        </span>
-                        <span className="playerName">Anthony</span>
-                        <span className="playerRankBox">
-                            <span className="playerRank">
-                                ♥
-                            </span>
-                        </span>
-                    </div>
-
-
-                    <div className="playScore">
-                        <span className="playerScoreBox">
-                            <i className="playerScoreHearthIcon fa-solid fa-star"></i>
-                            <span className="playerScoreValue">480</span>
-                        </span>
-                        <span className="playerName">Anthony</span>
-                        <span className="playerRankBox">
-                            <span className="playerRank">
-                                ♥
-                            </span>
-                        </span>
-                    </div>
-
-                    <div className="playScore">
-                        <span className="playerScoreBox">
-                            <i className="playerScoreHearthIcon fa-solid fa-star"></i>
-                            <span className="playerScoreValue">480</span>
-                        </span>
-                        <span className="playerName">Anthony</span>
-                        <span className="playerRankBox">
-                            <span className="playerRank">
-                                ♥
-                            </span>
-                        </span>
-                    </div>
-
-                    <div className="playScore">
-                        <span className="playerScoreBox">
-                            <i className="playerScoreHearthIcon fa-solid fa-star"></i>
-                            <span className="playerScoreValue">480</span>
-                        </span>
-                        <span className="playerName">Anthony</span>
-                        <span className="playerRankBox">
-                            <span className="playerRank">
-                                ♥
-                            </span>
-                        </span>
-                    </div>
-
+                    {orderedUsers.map(user => <StatLine orderedUsers={orderedUsers} user={user} userName={userName} />)}
                 </div>
             </div>
         </div>
